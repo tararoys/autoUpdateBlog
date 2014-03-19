@@ -37,7 +37,7 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 RAILS_PROJECT_DIR = '/home/TestRailsOnDigitalOcean';
 
-app.get('/hook', function(req, res){
+app.post('/hook', function(req, res){
   console.log("a hook was sent");
 p.exec('cd ' + RAILS_PROJECT_DIR + " && git pull");
 res.send('hello world');
