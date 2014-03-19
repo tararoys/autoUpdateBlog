@@ -31,12 +31,13 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 
+//
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
-TARAS_BLOG_DIR = '~/TarasBlog';
+RAILS_PROJECT_DIR = '/home/TestRailsOnDigitalOcean';
 
 app.get('/hook', function(req, res){
-p.exec('cd ' + TARAS_BLOG_DIR + " && git pull');
+p.exec('cd ' + RAILS_PROJECT_DIR + " && git pull");
 res.send('hello world');
 });
