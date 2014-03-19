@@ -13,7 +13,7 @@ var express = require('express')
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 4000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -38,6 +38,8 @@ http.createServer(app).listen(app.get('port'), function(){
 RAILS_PROJECT_DIR = '/home/TestRailsOnDigitalOcean';
 
 app.get('/hook', function(req, res){
+  console.log("a hook was sent");
 p.exec('cd ' + RAILS_PROJECT_DIR + " && git pull");
 res.send('hello world');
+
 });
